@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class TBC_EntityPositioner : MonoBehaviour
 {
-    public GameObject[] playerEntities;
-    public GameObject[] enemyEntities;
+    public TBC_Entity[] PlayerEntities
+    {
+        get { return TBC_GameManager.instance.playerEntities; }
+    }
+    public TBC_Entity[] EnemyEntities
+    {
+        get { return TBC_GameManager.instance.enemyEntities; }
+    }
     public float preferedSpacing;
     public float minSpacing;
 
@@ -16,32 +22,32 @@ public class TBC_EntityPositioner : MonoBehaviour
 
     public void UpdateEntityPositions()
     {
-        bool playerUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (playerEntities.Length - 1) * preferedSpacing;
-        for(int x = 0; x < playerEntities.Length; x++)
+        bool playerUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (PlayerEntities.Length - 1) * preferedSpacing;
+        for(int x = 0; x < PlayerEntities.Length; x++)
         {
-            float entitySpace = playerUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (playerEntities.Length + 1);
+            float entitySpace = playerUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (PlayerEntities.Length + 1);
             entitySpace = Mathf.Max(entitySpace, minSpacing);
 
             float screenX = entitySpace * (x + 1);
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(new Vector3(screenX, 0, 0));
-            newPosition.y = playerEntities[x].transform.position.y;
-            newPosition.z = playerEntities[x].transform.position.z;
+            newPosition.y = PlayerEntities[x].transform.position.y;
+            newPosition.z = PlayerEntities[x].transform.position.z;
 
-            playerEntities[x].transform.position = newPosition;
+            PlayerEntities[x].transform.position = newPosition;
         }
 
-        bool enemyUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (enemyEntities.Length - 1) * preferedSpacing;
-        for(int x = 0; x < enemyEntities.Length; x++)
+        bool enemyUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (EnemyEntities.Length - 1) * preferedSpacing;
+        for(int x = 0; x < EnemyEntities.Length; x++)
         {
-            float entitySpace = enemyUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (enemyEntities.Length + 1);
+            float entitySpace = enemyUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (EnemyEntities.Length + 1);
             entitySpace = Mathf.Max(entitySpace, minSpacing);
 
             float screenX = Screen.width - entitySpace * (x + 1);
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(new Vector3(screenX, 0, 0));
-            newPosition.y = enemyEntities[x].transform.position.y;
-            newPosition.z = enemyEntities[x].transform.position.z;
+            newPosition.y = EnemyEntities[x].transform.position.y;
+            newPosition.z = EnemyEntities[x].transform.position.z;
 
-            enemyEntities[x].transform.position = newPosition;
+            EnemyEntities[x].transform.position = newPosition;
         }
     }
 }

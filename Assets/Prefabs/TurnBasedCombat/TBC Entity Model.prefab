@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2353407302008902391}
   - component: {fileID: 878439619586426736}
   - component: {fileID: 7890392796230214556}
+  - component: {fileID: 8100751286696921918}
   m_Layer: 0
   m_Name: TBC Entity Model
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4443713999519337652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6437130408493108989}
@@ -46,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7beb3238baf7d4baaae0928c338d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  healthModel: {fileID: 0}
+  spriteUI: {fileID: 0}
   attackListParent: {fileID: 7449296461090821042}
   attackList: []
 --- !u!114 &7890392796230214556
@@ -63,6 +65,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+--- !u!61 &8100751286696921918
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443713999519337652}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!1 &7449296461090821042
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,10 +166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: A basic attack
-  damage: 0
+  damage: 1
   cooldownDuration: 0
   cooldownCount: 0
-  targetCount: 1
+  maxTargets: 1
+  selectedTargets: []
   affectsAllEnemies: 0
 --- !u!1001 &4758984855355211914
 PrefabInstance:
@@ -156,11 +185,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972021947297533559, guid: f787b70f6f69b694b820c4f4d354bef1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1972021947297533559, guid: f787b70f6f69b694b820c4f4d354bef1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1972021947297533559, guid: f787b70f6f69b694b820c4f4d354bef1, type: 3}
       propertyPath: m_LocalRotation.x

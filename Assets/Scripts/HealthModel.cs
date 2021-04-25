@@ -6,4 +6,8 @@ public class HealthModel : MonoBehaviour
 {
     public int health;
     public int maxHealth;
+    public float HealthPercent
+    {
+        get { return (float)health / maxHealth; }
+    }
 }

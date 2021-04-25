@@ -9,17 +9,18 @@ public class TBC_GameManager : MonoBehaviour
     public TBC_EntityPositioner positioner;
 
     public TBC_Entity[] playerEntities;
-    public TBC_Entity[] enemyEntities;
-    public TBC_Entity ActiveEntity
+    public TBC_EnemyEntity[] enemyEntities;
+    public TBC_Entity ActiveTurnEntity
     {
         get
         {
-            if (activeEntityIndex < playerEntities.Length) return playerEntities[activeEntityIndex];
+            if (activeTurnEntityIndex < playerEntities.Length) return playerEntities[activeTurnEntityIndex];
 
-            return enemyEntities[activeEntityIndex - playerEntities.Length];
+            return enemyEntities[activeTurnEntityIndex - playerEntities.Length];
         }
     }
-    public int activeEntityIndex; //Entity who's taking their turn
+    public int activeTurnEntityIndex; //Entity who's taking their turn
+    public TBC_Attack playerSelectedAttack;
 
     private void Awake()
     {
@@ -32,5 +33,24 @@ public class TBC_GameManager : MonoBehaviour
     private void Start()
     {
         positioner.UpdateEntityPositions();
+        ActiveTurnEntity.spriteUI.SetTurnUI(true);
+    }
+
+    public void TrySelectTargetToAttack(TBC_EnemyEntity enemy)
+    {
+        if (playerSelectedAttack != null)
+        {
+            if (playerSelectedAttack.AddTarget(enemy))
+            {
+                TBC_CanvasManager.instance.ClearSelectionButtons();
+                TBC_CanvasManager.instance.descriptionText.text = "";
+
+                ActiveTurnEntity.spriteUI.SetTurnUI(false);
+                activeTurnEntityIndex = activeTurnEntityIndex + 1 >= playerEntities.Length + enemyEntities.Length ? 0 : activeTurnEntityIndex + 1;
+                ActiveTurnEntity.spriteUI.SetTurnUI(true);
+
+                playerSelectedAttack = null;
+            }
+        }
     }
 }

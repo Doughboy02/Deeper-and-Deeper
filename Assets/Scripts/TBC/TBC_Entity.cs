@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class TBC_Entity : MonoBehaviour
 {
-    public HealthModel health;
+    public HealthModel healthModel;
+    public TBC_EntitySpriteUI spriteUI;
     public GameObject attackListParent;
     public TBC_Attack[] attackList;
 
     private void Awake()
     {
-        health = GetComponent<HealthModel>();
+        healthModel = GetComponent<HealthModel>();
+        spriteUI = GetComponentInChildren<TBC_EntitySpriteUI>();
         attackList = attackListParent.GetComponentsInChildren<TBC_Attack>();
+    }
+
+    private void Start()
+    {
+        spriteUI.UpdateHealth(healthModel.health, healthModel.HealthPercent);
+    }
+
+    public void DealDamage(int damage)
+    {
+        healthModel.health -= damage;
+        spriteUI.UpdateHealth(healthModel.health, healthModel.HealthPercent);
     }
 }

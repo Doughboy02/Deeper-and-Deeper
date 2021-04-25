@@ -21,7 +21,7 @@ public class TBC_CanvasManager : MonoBehaviour
 
     private void Start()
     {
-        foreach (Transform selectionButton in selectionButtonParentTransform) Destroy(selectionButton.gameObject);
+        ClearSelectionButtons();
     }
 
     public void OnActionButtonSelected(int buttonIndex)
@@ -36,10 +36,15 @@ public class TBC_CanvasManager : MonoBehaviour
 
     public void SpawnActiveEntityAttacks()
     {
-        foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveEntity.attackList)
+        foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
         {
             TBC_SelectionButton selectionButton = Instantiate(selectionButtonPrefab, selectionButtonParentTransform).GetComponent<TBC_SelectionButton>();
             selectionButton.SetupUI(attack);
         }
+    }
+
+    public void ClearSelectionButtons()
+    {
+        foreach (Transform selectionButton in selectionButtonParentTransform) Destroy(selectionButton.gameObject);
     }
 }

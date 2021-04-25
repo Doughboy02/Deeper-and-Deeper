@@ -21,6 +21,11 @@ public class TBC_Entity : MonoBehaviour
         spriteUI.UpdateHealth(healthModel.health, healthModel.HealthPercent);
     }
 
+    private void OnMouseDown()
+    {
+        TBC_GameManager.instance.turnHandler.TrySelectTargetToAttack(this);
+    }
+
     public void DealDamage(int damage)
     {
         healthModel.health -= damage;

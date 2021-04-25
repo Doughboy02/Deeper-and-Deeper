@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TBC_EntityPositioner : MonoBehaviour
+public class TBC_EntityPositionHandler : MonoBehaviour
 {
     public TBC_Entity[] PlayerEntities
     {

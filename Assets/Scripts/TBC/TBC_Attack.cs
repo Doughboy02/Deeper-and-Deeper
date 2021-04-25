@@ -14,22 +14,28 @@ public class TBC_Attack : MonoBehaviour
     public int cooldownCount;
     public int maxTargets = 1;
     public List<TBC_Entity> selectedTargets;
-    public bool affectsAllEnemies;
+    public bool IsMaxTargets
+    {
+        get { return maxTargets == selectedTargets.Count; }
+    }
+    public bool affectsAll;
+    public TargetTypes targetType;
 
     private void Awake()
     {
         selectedTargets = new List<TBC_Entity>();
     }
 
-    public bool AddTarget(TBC_Entity entity)
+    public bool TryAddTarget(TBC_Entity entity)
     {
-        selectedTargets.Add(entity);
-        if (selectedTargets.Count >= maxTargets)
+        if (!selectedTargets.Contains(entity))
         {
-            ApplyAttackToTargets();
+            selectedTargets.Add(entity);
+            if (selectedTargets.Count >= maxTargets) ApplyAttackToTargets();
+
             return true;
         }
-
+        
         return false;
     }
 
@@ -43,4 +49,10 @@ public class TBC_Attack : MonoBehaviour
     }
 
     public void ResetTargets() => selectedTargets.Clear();
+}
+
+public enum TargetTypes
+{
+    Player,
+    Enemy,
 }

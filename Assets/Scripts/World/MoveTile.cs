@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveTile : MonoBehaviour
 {
     public bool CanMove = false;
+    public bool InView = false;
     public int MoveCost = 0;
 
     // Start is called before the first frame update
@@ -42,5 +43,25 @@ public class MoveTile : MonoBehaviour
         MoveCost = 0;
     }
 
+    public void SetOutOfView()
+    {
+        InView = false;
+        GetComponent<Renderer>().enabled = false;
+    }
 
+    public void SetInView()
+    {
+        InView = true;
+        GetComponent<Renderer>().enabled = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!InView) SetInView();
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (InView) SetOutOfView();
+    }
 }

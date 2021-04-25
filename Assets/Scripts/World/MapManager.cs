@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public int ViewDistance;
+    public int MapWidth;
     public GameObject[] MapBlocks;
     public static MapManager instance;
 
+    [SerializeField]
+    public GameObject[,] View;
     private Dictionary<Vector3, GameObject> _map = new Dictionary<Vector3, GameObject>();
 
     // Start is called before the first frame update
@@ -16,7 +18,7 @@ public class MapManager : MonoBehaviour
         if (instance == null)
         {
             instance = GetComponent<MapManager>();
-            StartCoroutine(GenerateMap(ViewDistance * 2 + 1));
+            StartCoroutine(GenerateMap(MapWidth));
         }
         else
         {
@@ -24,8 +26,39 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public void UpdateMap(Vector3 position, Vector3 previousPosition, int range)
+    {
+        /*
+        // OOOOOOOOOOOF PLEASE DONT LOOK AT THIS BAD CODE.... it works....
+        Vector3 direction = (position - previousPosition).normalized;
+        direction = new Vector3(Mathf.CeilToInt(direction.x), 0, Mathf.CeilToInt(direction.z));
+        Vector3 newPosition = position + (direction * (ViewDistance));
+
+        if (direction.x != 0 && direction.z != 0)
+        {
+            AddBlocks(new Vector3(newPosition.x, 0, (int)newPosition.z / 2), new Vector3(direction.x, 0, 0));
+            AddBlocks(new Vector3((int)newPosition.x / 2, 0, newPosition.z), new Vector3(0, 0, direction.z));
+        }
+        else
+        {
+            AddBlocks(newPosition, direction);
+        }*/
+    }
+
+    private void AddBlocks(Vector3 newPosition, Vector3 direction)
+    {
+        if (!TryGetPosition(newPosition, out GameObject block))
+        {
+            for (int i = -MapWidth; i <= MapWidth; i++)
+            {
+                AddPosition(newPosition + Vector3.Cross(direction, Vector3.up).normalized * i, Instantiate(GetBlockFromList()));
+            }
+        }
+    }
+
     public IEnumerator GenerateMap(int mapSize)
     {
+        View = new GameObject[mapSize, mapSize];
         if (_map.Count > 0) _map.Clear();
 
         // update this random logic
@@ -34,6 +67,7 @@ public class MapManager : MonoBehaviour
             for (int x=0; x<mapSize; x++)
             {
                 AddPosition(new Vector3(x, 0, z), Instantiate(GetBlockFromList()));
+                View[x, z] = _map[new Vector3(x, 0, z)];
                 yield return null;
             }
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapMovement : MonoBehaviour
 {
     public GameObject Player;
+    public int ViewRange = 3;
     public int MovementRange;
     public int MovesAvailible = 0;
     public bool CanMove;
@@ -23,8 +24,8 @@ public class MapMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            ClearMovementRange();
-            SetMoveRange(MovesAvailible, Player.transform.position + Vector3.down);
+            RangeHandler.ClearMovementRange(MoveableTiles);
+            RangeHandler.SetMovementRange(MovesAvailible, Player.transform.position, MoveableTiles);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -35,51 +36,7 @@ public class MapMovement : MonoBehaviour
         if (CanMove) ChooseMovement();
     }
 
-    public void SetMoveRange(int range, Vector3 currentPosition)
-    {
-        GameObject block;
-
-        Vector3[] positions =
-        {
-            new Vector3(1, 0, 0),
-            new Vector3(-1, 0, 0),
-            new Vector3(0, 0, 1),
-            new Vector3(0, 0, -1),
-            new Vector3(1, 0, 1),
-            new Vector3(1, 0, -1),
-            new Vector3(-1, 0, 1),
-            new Vector3(-1, 0, -1)
-
-        };
-
-        if (range == 0) return;
-
-        for (int j = 0; j < positions.Length; j++)
-        {
-            if (MapManager.instance.TryGetPosition(currentPosition + positions[j], out block) && currentPosition + positions[j] != Player.transform.position + Vector3.down)
-            {
-                if (!MoveableTiles.Contains(block))
-                {
-                    MoveableTiles.Add(block);
-                    block.GetComponent<MoveTile>().SetToMoveable();
-                    block.GetComponent<MoveTile>().MoveCost = (int)Vector3.Distance(Player.transform.position + Vector3.down, block.transform.position);
-                }
-
-                SetMoveRange(range - 1, block.transform.position);
-            }
-        }
-    }
-
-    // Make Remove Move Range
-    public void ClearMovementRange()
-    {
-        foreach(GameObject block in MoveableTiles)
-        {
-            block.GetComponent<MoveTile>().SetToNotMoveable();
-        }
-
-        MoveableTiles.Clear();
-    }
+    
 
     //update to check if valid movement
     public void ChooseMovement()
@@ -115,13 +72,42 @@ public class MapMovement : MonoBehaviour
     {
         if (MovesAvailible >= block.MoveCost)
         {
-            print(block.MoveCost);
-            MovesAvailible -= block.MoveCost;
-            Vector3 previousPosition = Player.transform.position;
+            /*
+            Vector3 previousPosition = Player.transform.position + Vector3.down;
             Player.transform.position = new Vector3(block.transform.position.x, 1, block.transform.position.z);
-            UpdateSurroundings(CalculateDirection(previousPosition, Player.transform.position));
-            ClearMovementRange();
+            MapManager.instance.UpdateMap(Player.transform.position + Vector3.down, previousPosition, block.MoveCost);
+            MovesAvailible -= block.MoveCost;
+            RangeHandler.ClearMovementRange(MoveableTiles);*/
+
+            //Vector3 previousPosition = Player.transform.position + Vector3.down;
+            Player.transform.position = new Vector3(block.transform.position.x, 1, block.transform.position.z);
+            MovesAvailible -= block.MoveCost;
+            RangeHandler.ClearMovementRange(MoveableTiles);
+
+
+            //MapManager.instance.UpdateMap(Player.transform.position + Vector3.down, previousPosition, block.MoveCost);
+
+            /*
+            for(int z=0; z<MapManager.instance.MapWidth * 2 + 1; z++)
+            {
+                for (int x=0; x<MapManager.instance.MapWidth * 2 + 1; x++)
+                {
+                    MapManager.instance.View[x, z].transform.position += previousPosition - new Vector3(newPosition.x, 0, newPosition.z);
+                }
+            }
+
+            */
+            RaycastHit[] hits = Physics.BoxCastAll(Player.transform.position + Vector3.up * 2, new Vector3(ViewRange, 1, ViewRange) / 2, -Player.transform.up, Player.transform.rotation, 10, 1 << 9);
+            if (hits != null)
+            {
+                print(hits.Length);
+            }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(Player.transform.position - Player.transform.up, new Vector3(ViewRange, 1, ViewRange));
     }
 
     private Direction CalculateDirection(Vector3 previousPosition, Vector3 currentPosition)
@@ -129,11 +115,6 @@ public class MapMovement : MonoBehaviour
         Vector3 direction = previousPosition - currentPosition;
         print(direction);
         return Direction.Forward;
-    }
-
-    public void UpdateSurroundings(Direction direction)
-    {
-
     }
 }
 

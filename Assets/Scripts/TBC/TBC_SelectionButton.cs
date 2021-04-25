@@ -11,6 +11,7 @@ public class TBC_SelectionButton : MonoBehaviour
     public Text cooldownText;
 
     public TBC_Attack selectAttack;
+    public Item selectItem;
 
     private void Start()
     {
@@ -21,6 +22,10 @@ public class TBC_SelectionButton : MonoBehaviour
 
                 TBC_CanvasManager.instance.descriptionText.text = selectAttack.description;
                 TBC_GameManager.instance.playerSelectedAttack = selectAttack;
+            }
+            else if (selectItem != null)
+            {
+                TBC_CanvasManager.instance.descriptionText.text = selectItem.description;
             }
         });
     }
@@ -33,9 +38,21 @@ public class TBC_SelectionButton : MonoBehaviour
         {
             cooldownUI.SetActive(true);
             cooldownText.text = attack.cooldownCount.ToString();
+            selectionButton.interactable = false;
         }
-        else cooldownUI.SetActive(false);
+        else
+        {
+            cooldownUI.SetActive(false);
+            selectionButton.interactable = true;
+        }
 
         selectAttack = attack;
+    }
+
+    public void SetupUI(Item item)
+    {
+        selectionButtonText.text = item.name;
+        selectItem = item;
+        cooldownUI.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TBC_TurnHandler : MonoBehaviour
 {
+
     public TBC_Entity ActiveTurnEntity
     {
         get { return TBC_GameManager.instance.ActiveTurnEntity; }
@@ -33,6 +34,11 @@ public class TBC_TurnHandler : MonoBehaviour
         TBC_CanvasManager.instance.descriptionText.text = "";
 
         TBC_GameManager.instance.SetNextEntityTurn();
+
+        foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
+        {
+            attack.cooldownCount--;
+        }
 
         if (ActiveTurnEntity.GetType() == typeof(TBC_EnemyEntity))
         {

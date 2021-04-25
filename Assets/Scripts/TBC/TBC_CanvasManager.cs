@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TBC_CanvasManager : MonoBehaviour
@@ -32,17 +30,29 @@ public class TBC_CanvasManager : MonoBehaviour
         switch (buttonIndex)
         {
             case 0:
-                SpawnActiveEntityAttacks();
+                SpawnAttackSelections();
+                break;
+            case 1:
+                SpawnItemSelections();
                 break;
         }
     }
 
-    public void SpawnActiveEntityAttacks()
+    public void SpawnAttackSelections()
     {
         foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
         {
             TBC_SelectionButton selectionButton = Instantiate(selectionButtonPrefab, selectionButtonParentTransform).GetComponent<TBC_SelectionButton>();
             selectionButton.SetupUI(attack);
+        }
+    }
+
+    public void SpawnItemSelections()
+    {
+        foreach(Item item in Player.instance.ItemList)
+        {
+            TBC_SelectionButton selectionButton = Instantiate(selectionButtonPrefab, selectionButtonParentTransform).GetComponent<TBC_SelectionButton>();
+            selectionButton.SetupUI(item);
         }
     }
 

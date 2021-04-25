@@ -31,6 +31,12 @@ public class TBC_GameManager : MonoBehaviour
 
     private void Start()
     {
+        foreach(TBC_Entity entity in Player.instance.EntityList)
+        {
+            entity.gameObject.SetActive(true);
+            playerEntities.Add(entity);
+        }
+
         positionHandler.UpdateEntityPositions();
         ActiveTurnEntity.spriteUI.SetTurnUI(true);
     }

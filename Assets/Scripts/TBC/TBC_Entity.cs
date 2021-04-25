@@ -8,6 +8,10 @@ public class TBC_Entity : MonoBehaviour
     public TBC_EntitySpriteUI spriteUI;
     public GameObject attackListParent;
     public TBC_Attack[] attackList;
+    public bool IsDead
+    {
+        get { return healthModel.health <= 0; }
+    }
 
     private void Awake()
     {
@@ -23,12 +27,18 @@ public class TBC_Entity : MonoBehaviour
 
     private void OnMouseDown()
     {
-        TBC_GameManager.instance.turnHandler.TrySelectTargetToAttack(this);
+        if (!IsDead) TBC_GameManager.instance.turnHandler.TrySelectTargetToAttack(this);
     }
 
     public void DealDamage(int damage)
     {
         healthModel.health -= damage;
         spriteUI.UpdateHealth(healthModel.health, healthModel.HealthPercent);
+
+        if (IsDead)
+        {
+            if (TBC_GameManager.instance.playerEntities.Contains(this)) TBC_GameManager.instance.playerEntities.Remove(this);
+            else if (TBC_GameManager.instance.enemyEntities.Contains(this)) TBC_GameManager.instance.enemyEntities.Remove(this);
+        }
     }
 }

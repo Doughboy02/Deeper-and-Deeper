@@ -18,9 +18,7 @@ public class TBC_TurnHandler : MonoBehaviour
 
             if (playerCheck || enemyCheck)
             {
-                TBC_GameManager.instance.playerSelectedAttack.TryAddTarget(target);
-
-                if (TBC_GameManager.instance.playerSelectedAttack.IsMaxTargets) NextTurn();
+                if (TBC_GameManager.instance.playerSelectedAttack.TryAddTarget(target)) NextTurn();
                 else
                 {
                     //Add ui for a selected enemy
@@ -48,11 +46,12 @@ public class TBC_TurnHandler : MonoBehaviour
             }
             enemyAttack.ResetTargets();
 
-            if (enemyAttack.maxTargets < TBC_GameManager.instance.playerEntities.Length)
+            if (enemyAttack.maxTargets < TBC_GameManager.instance.playerEntities.Count)
             {
-                while (enemyAttack.selectedTargets.Count < enemyAttack.maxTargets)
+                bool finishedAttack = false;
+                while (!finishedAttack)
                 {
-                    enemyAttack.TryAddTarget(TBC_GameManager.instance.playerEntities[Random.Range(0, TBC_GameManager.instance.playerEntities.Length)]);
+                    finishedAttack = enemyAttack.TryAddTarget(TBC_GameManager.instance.playerEntities[Random.Range(0, TBC_GameManager.instance.playerEntities.Count)]);
                 }
             }
             else

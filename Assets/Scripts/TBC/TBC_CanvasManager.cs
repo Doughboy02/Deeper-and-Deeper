@@ -26,6 +26,9 @@ public class TBC_CanvasManager : MonoBehaviour
 
     public void OnActionButtonSelected(int buttonIndex)
     {
+        ClearSelectionButtons();
+        descriptionText.text = "";
+
         switch (buttonIndex)
         {
             case 0:

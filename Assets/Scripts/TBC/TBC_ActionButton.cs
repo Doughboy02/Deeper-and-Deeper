@@ -11,6 +11,14 @@ public class TBC_ActionButton : MonoBehaviour
     private void Start()
     {
         selectedText.SetActive(false);
-        actionButton.onClick.AddListener(() => TBC_CanvasManager.instance.OnActionButtonSelected(transform.GetSiblingIndex()));
+        actionButton.onClick.AddListener(delegate
+        {
+            TBC_CanvasManager.instance.OnActionButtonSelected(transform.GetSiblingIndex());
+            if (TBC_GameManager.instance.playerSelectedAttack != null)
+            {
+                TBC_GameManager.instance.playerSelectedAttack.ResetTargets();
+                TBC_GameManager.instance.playerSelectedAttack = null;
+            }
+        });
     }
 }

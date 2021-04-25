@@ -14,10 +14,6 @@ public class TBC_Attack : MonoBehaviour
     public int cooldownCount;
     public int maxTargets = 1;
     public List<TBC_Entity> selectedTargets;
-    public bool IsMaxTargets
-    {
-        get { return maxTargets == selectedTargets.Count; }
-    }
     public bool affectsAll;
     public TargetTypes targetType;
 
@@ -31,24 +27,35 @@ public class TBC_Attack : MonoBehaviour
         if (!selectedTargets.Contains(entity))
         {
             selectedTargets.Add(entity);
-            if (selectedTargets.Count >= maxTargets) ApplyAttackToTargets();
+            entity.spriteUI.selectedSprite.SetActive(true);
+            if (selectedTargets.Count >= maxTargets)
+            {
+                ApplyAttackToTargets();
 
-            return true;
+                return true;
+            }
         }
         
         return false;
     }
 
-    public virtual void ApplyAttackToTargets()
+    public void ApplyAttackToTargets()
     {
         foreach(TBC_Entity entity in selectedTargets)
         {
             entity.DealDamage(damage);
         }
         cooldownCount = cooldownDuration;
+
+        ResetTargets();
     }
 
-    public void ResetTargets() => selectedTargets.Clear();
+    public void ResetTargets()
+    {
+        foreach (TBC_Entity entity in selectedTargets) entity.spriteUI.selectedSprite.SetActive(false);
+
+        selectedTargets.Clear();
+    }
 }
 
 public enum TargetTypes

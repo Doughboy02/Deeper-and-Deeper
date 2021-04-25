@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TBC_EntityPositionHandler : MonoBehaviour
 {
-    public TBC_Entity[] PlayerEntities
+    public List<TBC_Entity> PlayerEntities
     {
         get { return TBC_GameManager.instance.playerEntities; }
     }
-    public TBC_Entity[] EnemyEntities
+    public List<TBC_Entity> EnemyEntities
     {
         get { return TBC_GameManager.instance.enemyEntities; }
     }
@@ -22,10 +22,10 @@ public class TBC_EntityPositionHandler : MonoBehaviour
 
     public void UpdateEntityPositions()
     {
-        bool playerUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (PlayerEntities.Length - 1) * preferedSpacing;
-        for(int x = 0; x < PlayerEntities.Length; x++)
+        bool playerUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (PlayerEntities.Count - 1) * preferedSpacing;
+        for(int x = 0; x < PlayerEntities.Count; x++)
         {
-            float entitySpace = playerUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (PlayerEntities.Length + 1);
+            float entitySpace = playerUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (PlayerEntities.Count + 1);
             entitySpace = Mathf.Max(entitySpace, minSpacing);
 
             float screenX = entitySpace * (x + 1);
@@ -36,10 +36,10 @@ public class TBC_EntityPositionHandler : MonoBehaviour
             PlayerEntities[x].transform.position = newPosition;
         }
 
-        bool enemyUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (EnemyEntities.Length - 1) * preferedSpacing;
-        for(int x = 0; x < EnemyEntities.Length; x++)
+        bool enemyUsePreferedSpacing = preferedSpacing > 0 && Screen.width / 2 > (EnemyEntities.Count - 1) * preferedSpacing;
+        for(int x = 0; x < EnemyEntities.Count; x++)
         {
-            float entitySpace = enemyUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (EnemyEntities.Length + 1);
+            float entitySpace = enemyUsePreferedSpacing ? preferedSpacing : Screen.width / 2 / (EnemyEntities.Count + 1);
             entitySpace = Mathf.Max(entitySpace, minSpacing);
 
             float screenX = Screen.width - entitySpace * (x + 1);

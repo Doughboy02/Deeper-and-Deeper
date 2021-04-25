@@ -9,15 +9,15 @@ public class TBC_GameManager : MonoBehaviour
     public TBC_EntityPositionHandler positionHandler;
     public TBC_TurnHandler turnHandler;
 
-    public TBC_PlayerEntity[] playerEntities;
-    public TBC_EnemyEntity[] enemyEntities;
+    public List<TBC_Entity> playerEntities;
+    public List<TBC_Entity> enemyEntities;
     public TBC_Entity ActiveTurnEntity
     {
         get
         {
-            if (activeTurnEntityIndex < playerEntities.Length) return playerEntities[activeTurnEntityIndex];
+            if (activeTurnEntityIndex < playerEntities.Count) return playerEntities[activeTurnEntityIndex];
 
-            return enemyEntities[activeTurnEntityIndex - playerEntities.Length];
+            return enemyEntities[activeTurnEntityIndex - playerEntities.Count];
         }
     }
     public int activeTurnEntityIndex; //Entity who's taking their turn
@@ -37,11 +37,15 @@ public class TBC_GameManager : MonoBehaviour
 
     public void SetNextEntityTurn()
     {
-        playerSelectedAttack = null;
+        if (playerSelectedAttack != null)
+        {
+            playerSelectedAttack.ResetTargets();
+            playerSelectedAttack = null;
+        }
 
         ActiveTurnEntity.spriteUI.SetTurnUI(false);
         activeTurnEntityIndex =
-            activeTurnEntityIndex + 1 >= playerEntities.Length + enemyEntities.Length ?
+            activeTurnEntityIndex + 1 >= playerEntities.Count + enemyEntities.Count ?
             0 :
             activeTurnEntityIndex + 1;
         ActiveTurnEntity.spriteUI.SetTurnUI(true);

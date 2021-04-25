@@ -27,7 +27,6 @@ public class TBC_Attack : MonoBehaviour
         if (!selectedTargets.Contains(entity))
         {
             selectedTargets.Add(entity);
-            entity.spriteUI.selectedSprite.SetActive(true);
 
             int targetEntityCount = 0;
             switch(targetType)

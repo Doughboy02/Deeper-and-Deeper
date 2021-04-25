@@ -26,6 +26,7 @@ public class TBC_SelectionButton : MonoBehaviour
             else if (selectItem != null)
             {
                 TBC_CanvasManager.instance.descriptionText.text = selectItem.description;
+                TBC_GameManager.instance.playerSelectedItem = selectItem;
             }
         });
     }

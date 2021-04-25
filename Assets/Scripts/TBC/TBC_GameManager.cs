@@ -22,6 +22,7 @@ public class TBC_GameManager : MonoBehaviour
     }
     public int activeTurnEntityIndex; //Entity who's taking their turn
     public TBC_Attack playerSelectedAttack;
+    public Item playerSelectedItem;
 
     private void Awake()
     {

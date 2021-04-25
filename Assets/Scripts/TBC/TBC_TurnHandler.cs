@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class TBC_TurnHandler : MonoBehaviour
 {
-
     public TBC_Entity ActiveTurnEntity
     {
         get { return TBC_GameManager.instance.ActiveTurnEntity; }
     }
 
-    public void TrySelectTargetToAttack(TBC_Entity target)
+    public void TrySelectTarget(TBC_Entity target)
     {
         if (TBC_GameManager.instance.playerSelectedAttack != null)
         {
-            bool playerCheck = TBC_GameManager.instance.playerSelectedAttack.targetType == TargetTypes.Player && target.GetType() == typeof(TBC_PlayerEntity);
-            bool enemyCheck = TBC_GameManager.instance.playerSelectedAttack.targetType == TargetTypes.Enemy && target.GetType() == typeof(TBC_EnemyEntity);
-
-            if (playerCheck || enemyCheck)
-            {
+            if (
+                IsTargetingEnemy(TBC_GameManager.instance.playerSelectedAttack.targetType, target) ||
+                IsTargetingPlayer(TBC_GameManager.instance.playerSelectedAttack.targetType, target)
+            ) {
                 if (TBC_GameManager.instance.playerSelectedAttack.TryAddTarget(target)) NextTurn();
-                else
-                {
-                    //Add ui for a selected enemy
-                }
+                else target.spriteUI.selectedSprite.SetActive(true);
+
+            }
+        }
+        else if (TBC_GameManager.instance.playerSelectedItem != null)
+        {
+            if (
+                IsTargetingEnemy(TBC_GameManager.instance.playerSelectedItem.targetType, target) ||
+                IsTargetingPlayer(TBC_GameManager.instance.playerSelectedItem.targetType, target)
+            ) {
+                if (TBC_GameManager.instance.playerSelectedItem.TryAddTarget(target)) NextTurn();
+                else target.spriteUI.selectedSprite.SetActive(true);
             }
         }
     }
@@ -71,4 +77,7 @@ public class TBC_TurnHandler : MonoBehaviour
             NextTurn();
         }
     }
+
+    private bool IsTargetingPlayer(TargetTypes actionType, TBC_Entity target) => actionType == TargetTypes.Player && target.GetType() == typeof(TBC_PlayerEntity);
+    private bool IsTargetingEnemy(TargetTypes actionType, TBC_Entity target) => actionType == TargetTypes.Enemy && target.GetType() == typeof(TBC_EnemyEntity);
 }

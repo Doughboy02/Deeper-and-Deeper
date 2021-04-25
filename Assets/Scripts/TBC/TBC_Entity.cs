@@ -27,7 +27,7 @@ public class TBC_Entity : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!IsDead) TBC_GameManager.instance.turnHandler.TrySelectTargetToAttack(this);
+        if (!IsDead) TBC_GameManager.instance.turnHandler.TrySelectTarget(this);
     }
 
     public void DealDamage(int damage)

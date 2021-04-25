@@ -28,7 +28,19 @@ public class TBC_Attack : MonoBehaviour
         {
             selectedTargets.Add(entity);
             entity.spriteUI.selectedSprite.SetActive(true);
-            if (selectedTargets.Count >= maxTargets)
+
+            int targetEntityCount = 0;
+            switch(targetType)
+            {
+                case TargetTypes.Player:
+                    targetEntityCount = TBC_GameManager.instance.playerEntities.Count;
+                    break;
+                case TargetTypes.Enemy:
+                    targetEntityCount = TBC_GameManager.instance.enemyEntities.Count;
+                    break;
+            }
+
+            if (affectsAll || selectedTargets.Count >= maxTargets || selectedTargets.Count >= targetEntityCount)
             {
                 ApplyAttackToTargets();
 

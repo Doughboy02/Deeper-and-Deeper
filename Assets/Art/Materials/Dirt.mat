@@ -59,6 +59,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _IsHovered: 0
+    - _IsInMoveRange: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -72,7 +73,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_4CC1194B: {r: 0.5849056, g: 0.36969835, b: 0.09104664, a: 0}
-    - Color_E32F9030: {r: 1, g: 0.7397323, b: 0, a: 0}
+    - Color_648DF7B0: {r: 0.54244447, g: 0, b: 0.9254902, a: 0}
+    - Color_E32F9030: {r: 2, g: 1.482353, b: 0, a: 0}
     - _BaseColor: {r: 0.5283019, g: 0.3153309, b: 0.13705947, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

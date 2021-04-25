@@ -6,13 +6,22 @@ public class MapManager : MonoBehaviour
 {
     public int ViewDistance;
     public GameObject[] MapBlocks;
+    public static MapManager instance;
 
     private Dictionary<Vector3, GameObject> _map = new Dictionary<Vector3, GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GenerateMap(ViewDistance));
+        if (instance == null)
+        {
+            instance = GetComponent<MapManager>();
+            StartCoroutine(GenerateMap(ViewDistance * 2 + 1));
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public IEnumerator GenerateMap(int mapSize)

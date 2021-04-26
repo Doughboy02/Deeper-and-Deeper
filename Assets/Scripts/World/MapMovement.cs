@@ -7,7 +7,7 @@ public class MapMovement : MonoBehaviour
     public GameObject Player;
     public GameObject PlayerModel;
     public GameObject LightSource;
-    public int MovementSpeed = 3;
+    public float MovementSpeed = 3;
     public bool CanMove;
 
     private Rigidbody rigidbody;

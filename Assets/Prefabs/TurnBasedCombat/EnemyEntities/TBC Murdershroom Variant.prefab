@@ -122,6 +122,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: TBC Murdershroom Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2589221209130052255, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589221209130052255, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589221209130052255, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624613021691599479, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876771905013017484, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876771905013017484, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4588047654592745490, guid: 0adef443486de5945ad21773d34f5495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -166,9 +190,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6446420430227288906, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d6e0ba46fc948640898634b04f03c53, type: 3}
+    - target: {fileID: 7565407925236444179, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565407925236444179, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7887756536947140781, guid: 0adef443486de5945ad21773d34f5495, type: 3}
       propertyPath: m_Name
       value: Claw Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627417145832788967, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d6e0ba46fc948640898634b04f03c53, type: 3}
+    - target: {fileID: 8971663750530844856, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0adef443486de5945ad21773d34f5495, type: 3}

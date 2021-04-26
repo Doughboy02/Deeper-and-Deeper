@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: -910886771515568509}
   - component: {fileID: 6373126827350641999}
   - component: {fileID: 9193274403489560965}
-  m_Layer: 0
+  - component: {fileID: 6072412192433564388}
+  m_Layer: 11
   m_Name: rockWide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,3 +101,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6072412192433564388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247961050484578384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0935212, y: 1.0199997, z: 1.5674287}
+  m_Center: {x: 0, y: 0.5099999, z: 0}

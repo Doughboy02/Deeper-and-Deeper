@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 224259955884090151}
   - component: {fileID: 2663963241591347181}
   - component: {fileID: 8208489387328211197}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: treeCrooked
   m_TagString: Untagged
   m_Icon: {fileID: 0}

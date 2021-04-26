@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5316239354920123585}
   - component: {fileID: 7304335340975265339}
   - component: {fileID: 4808367771022353137}
-  m_Layer: 0
+  - component: {fileID: 2851431942492275901}
+  m_Layer: 11
   m_Name: rockLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,3 +101,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2851431942492275901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465547780174037796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5981308, y: 1.1627998, z: 1.4494153}
+  m_Center: {x: 0, y: 0.5813999, z: 0}

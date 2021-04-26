@@ -10,44 +10,66 @@ public class MapMovement : MonoBehaviour
     public int MovementSpeed = 3;
     public bool CanMove;
 
+    private Rigidbody rigidbody;
+
+    private void Start()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+        FreezeMovement();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (CanMove) ChooseMovement();
     }
 
+    public void FreezeMovement()
+    {
+        rigidbody.useGravity = false;
+        CanMove = false;
+    }
+
+    public void UnfreezeMovement()
+    {
+        rigidbody.useGravity = true;
+        CanMove = true;
+    }
+
     //update to check if valid movement
     public void ChooseMovement()
     {
-        float faceDirectionAngle = PlayerModel.transform.localEulerAngles.y;
         Vector3 movementDirection = Vector3.zero;
 
         if (Input.GetKey(KeyCode.A))
         {
             movementDirection += -transform.right * MovementSpeed * Time.deltaTime;
-            faceDirectionAngle = 225;
+            PlayerModel.GetComponent<SpriteRenderer>().flipX = false;
+            PlayerModel.GetComponent<Animator>().SetTrigger("Walk");
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             movementDirection += transform.right * MovementSpeed * Time.deltaTime;
-            faceDirectionAngle = 45;
+            PlayerModel.GetComponent<SpriteRenderer>().flipX = true;
+            PlayerModel.GetComponent<Animator>().SetTrigger("Walk");
         }
 
         if (Input.GetKey(KeyCode.W))
         {
             movementDirection += transform.forward * MovementSpeed * Time.deltaTime;
-            faceDirectionAngle = 315;
+            PlayerModel.GetComponent<Animator>().SetTrigger("Walk");
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             movementDirection += -transform.forward * MovementSpeed * Time.deltaTime;
-            faceDirectionAngle = 135;
+            PlayerModel.GetComponent<Animator>().SetTrigger("Walk");
         }
 
+        if (movementDirection == Vector3.zero) PlayerModel.GetComponent<Animator>().SetTrigger("StopWalk");
+
         LookAtMouse();
-        //PlayerModel.transform.LookAt(movementDirection + transform.position, PlayerModel.transform.up);
         transform.position += movementDirection;
     }
 
@@ -63,8 +85,8 @@ public class MapMovement : MonoBehaviour
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
 
-            PlayerModel.transform.LookAt(new Vector3(pointToLook.x, PlayerModel.transform.position.y, pointToLook.z));
             LightSource.transform.LookAt(new Vector3(pointToLook.x, PlayerModel.transform.position.y, pointToLook.z));
+            LightSource.transform.eulerAngles = new Vector3(0, LightSource.transform.eulerAngles.y, 0);
         }
     }
 }

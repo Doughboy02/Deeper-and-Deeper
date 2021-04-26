@@ -111,17 +111,17 @@ public class MoveTile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!GetComponent<Renderer>().enabled) SetInView();
+        if (!GetComponent<Renderer>().enabled && !collision.gameObject.CompareTag("Player")) SetInView();
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (InView) SetOutOfView();
+        if (InView && !collision.gameObject.CompareTag("Player")) SetOutOfView();
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if (!GetComponent<Renderer>().enabled) SetInView();
+        if (!GetComponent<Renderer>().enabled && !collision.gameObject.CompareTag("Player")) SetInView();
     }
 }
 

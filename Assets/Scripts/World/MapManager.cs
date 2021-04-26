@@ -42,6 +42,8 @@ public class MapManager : MonoBehaviour
                 yield return null;
             }
         }
+
+        Player.GetComponent<MapMovement>().UnfreezeMovement();
     }
 
     private GameObject GetBlockFromList(float x, float z)

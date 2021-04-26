@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+  armor: 0
 --- !u!61 &8100751286696921918
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: A basic attack
+  description: Attack Description
   damage: 0
   cooldownDuration: 0
   cooldownCount: 0

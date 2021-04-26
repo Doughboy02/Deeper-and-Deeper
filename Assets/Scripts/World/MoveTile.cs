@@ -24,6 +24,10 @@ public class MoveTile : MonoBehaviour
             _ExtraEntity = Instantiate(EntitySpawnList[Random.Range(0, EntitySpawnList.Length)], transform.up / 2 + transform.position, transform.rotation, transform);
             _ExtraEntity.transform.Rotate(Vector3.up, Random.Range(0, 360));
         }
+        else if(Random.value <= SpawnChance && MapManager.instance.EnemyAmount > 0)
+        {
+            Instantiate(MapManager.instance.GetEnemy(), transform.up / 2 + transform.position, transform.rotation, transform).GetComponentInChildren<MapEnemy>().SetOutOfView();
+        }
     }
 
     public void Hovering()
@@ -116,7 +120,7 @@ public class MoveTile : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (InView && !collision.gameObject.CompareTag("Player")) SetOutOfView();
+        if (GetComponent<Renderer>().enabled && !collision.gameObject.CompareTag("Player")) SetOutOfView();
     }
 
     private void OnCollisionStay(Collision collision)

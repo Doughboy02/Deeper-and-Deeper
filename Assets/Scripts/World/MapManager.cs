@@ -10,6 +10,8 @@ public class MapManager : MonoBehaviour
     public GameObject[] MapBlocks;
     public static MapManager instance;
     public MapMovement Player;
+    public int EnemyAmount = 1;
+    public GameObject[] EnemyList;
 
     [SerializeField]
     private Dictionary<Vector3, GameObject> _map = new Dictionary<Vector3, GameObject>();
@@ -26,6 +28,12 @@ public class MapManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public GameObject GetEnemy()
+    {
+        EnemyAmount--;
+        return EnemyList[Random.Range(0, EnemyList.Length)];
     }
 
     public IEnumerator GenerateMap()

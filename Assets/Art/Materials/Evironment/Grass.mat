@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dirt
+  m_Name: Grass
   m_Shader: {fileID: -6465566751694194690, guid: db8b29b9b284125498b93035970550ce, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -48,6 +48,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_2A0FFC52: 0.1
+    - Vector1_3B037E1D: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -72,12 +74,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_4CC1194B: {r: 0.5849056, g: 0.36969835, b: 0.09104664, a: 0}
+    - Color_4CC1194B: {r: 0.15558378, g: 0.9056604, b: 0.021359911, a: 0}
     - Color_648DF7B0: {r: 0.54244447, g: 0, b: 0.9254902, a: 0}
     - Color_E32F9030: {r: 2, g: 1.482353, b: 0, a: 0}
-    - _BaseColor: {r: 0.5283019, g: 0.3153309, b: 0.13705947, a: 1}
+    - _BaseColor: {r: 0.11532295, g: 1, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HeightOfBlock: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3212588681595507272

@@ -6,6 +6,7 @@ public class MapManager : MonoBehaviour
 {
     public int MapWidth;
     public int MapLength;
+    public float TerrainVariation = 10;
     public GameObject[] MapBlocks;
     public static MapManager instance;
     public MapMovement Player;
@@ -19,7 +20,7 @@ public class MapManager : MonoBehaviour
         if (instance == null)
         {
             instance = GetComponent<MapManager>();
-            StartCoroutine(GenerateMap(MapWidth));
+            StartCoroutine(GenerateMap());
         }
         else
         {
@@ -27,7 +28,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public IEnumerator GenerateMap(int mapSize)
+    public IEnumerator GenerateMap()
     {
         if (_map.Count > 0) _map.Clear();
 
@@ -36,16 +37,19 @@ public class MapManager : MonoBehaviour
         {
             for (int x=0; x<MapLength; x++)
             {
-                AddPosition(new Vector3(x, 0, z), Instantiate(GetBlockFromList()));
-                //_map[new Vector3(x, 0, z)].GetComponent<MoveTile>().SetOutOfView();
+                AddPosition(new Vector3(x, 0, z), Instantiate(GetBlockFromList(x, z)));
+                _map[new Vector3(x, 0, z)].GetComponent<MoveTile>().SetOutOfView();
                 yield return null;
             }
         }
     }
 
-    private GameObject GetBlockFromList()
+    private GameObject GetBlockFromList(float x, float z)
     {
-        return MapBlocks[Random.Range(0, MapBlocks.Length)];
+        float height = Mathf.PerlinNoise(x / TerrainVariation, z / TerrainVariation);
+        int randomNum = (int)(height * MapBlocks.Length);
+
+        return MapBlocks[randomNum];
     }
 
     /// <summary>

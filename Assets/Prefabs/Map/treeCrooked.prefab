@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4036466374689812306
+--- !u!1 &4609627749897713208
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,65 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4036466374689812305}
-  - component: {fileID: 4036466374689812318}
-  - component: {fileID: 4036466374689812319}
-  - component: {fileID: 4036466374689812304}
-  - component: {fileID: 4748846063254258936}
-  m_Layer: 9
-  m_Name: Dirt
-  m_TagString: Block
+  - component: {fileID: 3797485188055821442}
+  - component: {fileID: 4033979918853740370}
+  - component: {fileID: 224259955884090151}
+  - component: {fileID: 2663963241591347181}
+  - component: {fileID: 8208489387328211197}
+  m_Layer: 0
+  m_Name: treeCrooked
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4036466374689812305
+--- !u!4 &3797485188055821442
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036466374689812306}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 4609627749897713208}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4036466374689812318
+--- !u!114 &4033979918853740370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609627749897713208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ada7689329fcf04e918e0fe37cb2b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanMove: 0
+  InView: 0
+  MoveCost: 0
+  HasPossibleEntity: 0
+  SpawnChance: 0
+  EntitySpawnList: []
+--- !u!33 &224259955884090151
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036466374689812306}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4036466374689812319
+  m_GameObject: {fileID: 4609627749897713208}
+  m_Mesh: {fileID: -225363822245097011, guid: 63a623da77b4a7c41b18a92d8ec55ce8, type: 3}
+--- !u!23 &2663963241591347181
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036466374689812306}
+  m_GameObject: {fileID: 4609627749897713208}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +79,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 032d75855978bb842a84101409705867, type: 2}
+  - {fileID: 2100000, guid: 196560ca5dcec8e4cb87fe255d08ac81, type: 2}
+  - {fileID: 2100000, guid: 996d7a51d34e86f4498704ae63de85a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,37 +102,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4036466374689812304
-BoxCollider:
+--- !u!136 &8208489387328211197
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036466374689812306}
+  m_GameObject: {fileID: 4609627749897713208}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4748846063254258936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036466374689812306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ada7689329fcf04e918e0fe37cb2b73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanMove: 0
-  InView: 0
-  MoveCost: 0
-  HasPossibleEntity: 1
-  SpawnChance: 0.1
-  EntitySpawnList:
-  - {fileID: 6465547780174037796, guid: a25d4a2a59b4de0489f6c0f42f68182b, type: 3}
-  - {fileID: 8106077177458788659, guid: e16fc792a861ddb4cb8cdb1a3f4e3e2b, type: 3}
-  - {fileID: 7247961050484578384, guid: 2cc504f610ef22b418dd2f2c86b794b1, type: 3}
+  m_Radius: 0.09
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}

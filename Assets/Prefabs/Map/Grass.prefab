@@ -111,3 +111,10 @@ MonoBehaviour:
   CanMove: 0
   InView: 0
   MoveCost: 0
+  HasPossibleEntity: 1
+  EntitySpawnList:
+  - {fileID: 1139727965529332977, guid: 70e05b0b25dcafa4c82856bcaac066a1, type: 3}
+  - {fileID: 4609627749897713208, guid: 09ce3ea508841ee43bcbf3999c5e29f4, type: 3}
+  - {fileID: 674275483862619203, guid: 47e86caf457d74f4a93767efc1a789b9, type: 3}
+  - {fileID: 8091655536628236743, guid: 7f05613d22e60e248b13d1db05c66588, type: 3}
+  - {fileID: 7098409977551653522, guid: 60e96d81e30308e48ae540e8e7da01f1, type: 3}

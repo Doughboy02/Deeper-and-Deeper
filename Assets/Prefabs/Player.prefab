@@ -50,6 +50,7 @@ MonoBehaviour:
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 1
 --- !u!1 &1791807027477983053
 GameObject:
@@ -101,6 +102,7 @@ MonoBehaviour:
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 1
 --- !u!1 &3555862564274952580
 GameObject:
@@ -111,9 +113,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7439808340466045480}
-  - component: {fileID: 7271299031961717009}
+  - component: {fileID: 2920407764706214512}
   m_Layer: 0
-  m_Name: Stump Bash
+  m_Name: Piercing Strike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,9 +133,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4308047513742325146}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7271299031961717009
+--- !u!114 &2920407764706214512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,13 +147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 3 Damage
-  damage: 3
-  cooldownDuration: 0
+  description: 4 Damage, Piercing
+  damage: 4
+  cooldownDuration: 3
   cooldownCount: 0
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 1
   targetType: 1
 --- !u!1 &3914572218257230696
 GameObject:
@@ -182,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4308047513742325146}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1146954581409034254
 MonoBehaviour:
@@ -203,6 +206,7 @@ MonoBehaviour:
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 1
   dotDuration: 3
   dotDamage: 1
@@ -334,6 +338,7 @@ MonoBehaviour:
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 1
 --- !u!1 &7851132596109076079
 GameObject:
@@ -441,11 +446,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4208613345978214762, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
       propertyPath: m_Name
-      value: Piercing Strike
+      value: Stump Bash
       objectReference: {fileID: 0}
     - target: {fileID: 5755047802802463224, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
       propertyPath: description
-      value: Attack Description
+      value: 3 Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755047802802463224, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
+      propertyPath: isPiercing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755047802802463224, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755047802802463224, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
+      propertyPath: cooldownDuration
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7547199845368369621, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,10 +13,19 @@ public class HealthModel : MonoBehaviour
 
     public int armor;
 
-    public void ReceiveDamage(int damage)
+    public void ReceiveDamage(int damage, bool isPiercing)
     {
-        int damageAfterArmor = armor - damage;
+        if (!isPiercing && armor > 0)
+        {
+            armor -= damage;
+            if (armor < 0)
+            {
+                damage = Mathf.Abs(armor);
+                armor = 0;
+            }
+            else damage = 0;
+        }
 
-        if (damageAfterArmor < 0) health -= Mathf.Abs(damageAfterArmor);
+        health -= damage;
     }
 }

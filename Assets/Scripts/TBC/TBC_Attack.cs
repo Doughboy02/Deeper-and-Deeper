@@ -15,6 +15,7 @@ public class TBC_Attack : MonoBehaviour
     public int maxTargets = 1;
     public List<TBC_Entity> selectedTargets;
     public bool affectsAll;
+    public bool isPiercing;
     public TargetTypes targetType;
 
     private void Awake()
@@ -63,7 +64,7 @@ public class TBC_Attack : MonoBehaviour
 
     public virtual void ApplyAttack(TBC_Entity entity)
     {
-        entity.DealDamage(damage);
+        entity.DealDamage(damage, isPiercing);
     }
 
     public void ResetTargets()

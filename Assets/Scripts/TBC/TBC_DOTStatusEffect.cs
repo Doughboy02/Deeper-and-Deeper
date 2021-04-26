@@ -8,7 +8,7 @@ public class TBC_DOTStatusEffect : TBC_StatusEfffect
 
     public override void ApplyEffect()
     {
-        attachedEntity.DealDamage(bleedDamage);
+        attachedEntity.DealDamage(bleedDamage, false);
 
         base.ApplyEffect();
     }

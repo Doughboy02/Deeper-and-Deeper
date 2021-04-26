@@ -32,9 +32,9 @@ public class TBC_Entity : MonoBehaviour
         if (!IsDead) TBC_GameManager.instance.turnHandler.TrySelectTarget(this);
     }
 
-    public void DealDamage(int damage)
+    public void DealDamage(int damage, bool isPiercing)
     {
-        healthModel.ReceiveDamage(damage);
+        healthModel.ReceiveDamage(damage, isPiercing);
         spriteUI.UpdateHealth(healthModel.health, healthModel.HealthPercent);
 
         if (IsDead)

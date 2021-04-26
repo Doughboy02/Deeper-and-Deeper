@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TBC_Entity : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class TBC_Entity : MonoBehaviour
     public TBC_EntitySpriteUI spriteUI;
     public GameObject attackListParent;
     public TBC_Attack[] attackList;
+    public UnityEvent startTurnEvent;
     public bool IsDead
     {
         get { return healthModel.health <= 0; }
@@ -32,7 +34,7 @@ public class TBC_Entity : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        healthModel.health -= damage;
+        healthModel.ReceiveDamage(damage);
         spriteUI.UpdateHealth(healthModel.health, healthModel.HealthPercent);
 
         if (IsDead)

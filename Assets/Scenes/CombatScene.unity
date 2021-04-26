@@ -377,11 +377,11 @@ MonoBehaviour:
   m_Content: {fileID: 223916055}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 25
   m_Viewport: {fileID: 1010331256}
   m_HorizontalScrollbar: {fileID: 492836233}
   m_VerticalScrollbar: {fileID: 1866347566}
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   - {fileID: 612483999}
   activeTurnEntityIndex: 0
   playerSelectedAttack: {fileID: 0}
+  playerSelectedItem: {fileID: 0}
 --- !u!1 &1095246676
 GameObject:
   m_ObjectHideFlags: 0

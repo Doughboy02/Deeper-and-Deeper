@@ -40,6 +40,7 @@ public class TBC_TurnHandler : MonoBehaviour
         TBC_CanvasManager.instance.descriptionText.text = "";
 
         TBC_GameManager.instance.SetNextEntityTurn();
+        TBC_GameManager.instance.ActiveTurnEntity.startTurnEvent.Invoke();
 
         foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
         {

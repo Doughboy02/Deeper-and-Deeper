@@ -54,11 +54,16 @@ public class TBC_Attack : MonoBehaviour
     {
         foreach(TBC_Entity entity in selectedTargets)
         {
-            entity.DealDamage(damage);
+            ApplyAttack(entity);
         }
         cooldownCount = cooldownDuration + 1;   //Added one cuz it immediatly gets reduced by 1 at the end of the turn
 
         ResetTargets();
+    }
+
+    public virtual void ApplyAttack(TBC_Entity entity)
+    {
+        entity.DealDamage(damage);
     }
 
     public void ResetTargets()

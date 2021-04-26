@@ -1,5 +1,211 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1227106745089979962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8039151458179832252}
+  - component: {fileID: 6741061281156108584}
+  m_Layer: 0
+  m_Name: Splinter Shot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8039151458179832252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227106745089979962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4308047513742325146}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6741061281156108584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227106745089979962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Attack Description
+  damage: 1
+  cooldownDuration: 0
+  cooldownCount: 0
+  maxTargets: 1
+  selectedTargets: []
+  affectsAll: 0
+  targetType: 1
+--- !u!1 &1791807027477983053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2392645170314732134}
+  - component: {fileID: 8986150075347458814}
+  m_Layer: 0
+  m_Name: Moss Throw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2392645170314732134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791807027477983053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4308047513742325146}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8986150075347458814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791807027477983053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Attack Description
+  damage: 1
+  cooldownDuration: 0
+  cooldownCount: 0
+  maxTargets: 1
+  selectedTargets: []
+  affectsAll: 0
+  targetType: 1
+--- !u!1 &3555862564274952580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7439808340466045480}
+  - component: {fileID: 7271299031961717009}
+  m_Layer: 0
+  m_Name: Stump Bash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7439808340466045480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555862564274952580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4308047513742325146}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7271299031961717009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555862564274952580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 3 Damage
+  damage: 3
+  cooldownDuration: 0
+  cooldownCount: 0
+  maxTargets: 1
+  selectedTargets: []
+  affectsAll: 0
+  targetType: 1
+--- !u!1 &3914572218257230696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8752708341553657130}
+  - component: {fileID: 1146954581409034254}
+  m_Layer: 0
+  m_Name: Vine Slice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8752708341553657130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914572218257230696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4308047513742325146}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1146954581409034254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914572218257230696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f2ab52928cd294dbf39d2d43601914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 2 Damage, Bleeding
+  damage: 2
+  cooldownDuration: 2
+  cooldownCount: 0
+  maxTargets: 1
+  selectedTargets: []
+  affectsAll: 0
+  targetType: 1
+  dotDuration: 3
+  dotDamage: 1
 --- !u!1 &5730991183208760737
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +284,57 @@ Transform:
   m_Father: {fileID: 522325969743232661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6546594613807470356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7207957370322756679}
+  - component: {fileID: 9008973145083672475}
+  m_Layer: 0
+  m_Name: Thorn Inject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7207957370322756679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546594613807470356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4308047513742325146}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9008973145083672475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546594613807470356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Attack Description
+  damage: 1
+  cooldownDuration: 0
+  cooldownCount: 0
+  maxTargets: 1
+  selectedTargets: []
+  affectsAll: 0
+  targetType: 1
 --- !u!1 &7851132596109076079
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +439,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4801324820009930372}
     m_Modifications:
+    - target: {fileID: 4208613345978214762, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
+      propertyPath: m_Name
+      value: Piercing Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755047802802463224, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
+      propertyPath: description
+      value: Attack Description
+      objectReference: {fileID: 0}
     - target: {fileID: 7547199845368369621, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -235,5 +500,10 @@ PrefabInstance:
 --- !u!4 &4150355828493261204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7547199845368369621, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
+  m_PrefabInstance: {fileID: 5846812403462867009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4308047513742325146 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7704900869512052187, guid: 118b7c43b911dc6438ead80f6b283c13, type: 3}
   m_PrefabInstance: {fileID: 5846812403462867009}
   m_PrefabAsset: {fileID: 0}

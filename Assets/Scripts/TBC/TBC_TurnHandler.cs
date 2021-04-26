@@ -38,12 +38,12 @@ public class TBC_TurnHandler : MonoBehaviour
     {
         TBC_CanvasManager.instance.ClearSelectionButtons();
         TBC_CanvasManager.instance.descriptionText.text = "";
+            
+        TBC_GameManager.instance.SetNextEntityTurn();
+        TBC_GameManager.instance.ActiveTurnEntity.startTurnEvent.Invoke();
 
-        if (TBC_GameManager.instance.playerEntities.Count > 0 && TBC_GameManager.instance.enemyEntities.Count > 0)
+        if (TBC_GameManager.instance.ActiveTurnEntity != null)
         {
-            TBC_GameManager.instance.SetNextEntityTurn();
-            TBC_GameManager.instance.ActiveTurnEntity.startTurnEvent.Invoke();
-
             foreach (TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
             {
                 attack.cooldownCount--;

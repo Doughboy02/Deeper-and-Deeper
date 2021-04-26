@@ -15,9 +15,13 @@ public class TBC_GameManager : MonoBehaviour
     {
         get
         {
-            if (activeTurnEntityIndex < playerEntities.Count) return playerEntities[activeTurnEntityIndex];
+            if (activeTurnEntityIndex < playerEntities.Count + enemyEntities.Count)
+            {
+                if (activeTurnEntityIndex < playerEntities.Count) return playerEntities[activeTurnEntityIndex];
 
-            return enemyEntities[activeTurnEntityIndex - playerEntities.Count];
+                return enemyEntities[activeTurnEntityIndex - playerEntities.Count];
+            }
+            else return null;
         }
     }
     public int activeTurnEntityIndex; //Entity who's taking their turn

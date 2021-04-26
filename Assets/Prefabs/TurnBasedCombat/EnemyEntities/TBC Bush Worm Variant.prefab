@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7130451101094059019}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2836391225187134877
 MonoBehaviour:
@@ -44,12 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Attack Description
-  damage: 1
-  cooldownDuration: 0
+  damage: 5
+  cooldownDuration: 2
   cooldownCount: 0
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 0
 --- !u!1 &7982443823494605357
 GameObject:
@@ -60,9 +61,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2774548201875495666}
-  - component: {fileID: 7267973134643355898}
+  - component: {fileID: 2338257624086921310}
   m_Layer: 0
-  m_Name: Brush Strike
+  m_Name: Tongue Lash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,9 +81,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7130451101094059019}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7267973134643355898
+--- !u!114 &2338257624086921310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,68 +92,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7982443823494605357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
+  m_Script: {fileID: 11500000, guid: d8f2ab52928cd294dbf39d2d43601914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Attack Description
-  damage: 1
-  cooldownDuration: 0
+  description: 
+  damage: 2
+  cooldownDuration: 3
   cooldownCount: 0
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 0
---- !u!1 &7995407689778399997
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9173855524670927092}
-  - component: {fileID: 6761069719876219059}
-  m_Layer: 0
-  m_Name: Tounge Lash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9173855524670927092
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995407689778399997}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7130451101094059019}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6761069719876219059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995407689778399997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Attack Description
-  damage: 1
-  cooldownDuration: 0
-  cooldownCount: 0
-  maxTargets: 1
-  selectedTargets: []
-  affectsAll: 0
-  targetType: 0
+  dotDuration: 2
+  dotDamage: 3
+  destroysArmor: 0
 --- !u!1001 &6847778993188118551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +114,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1787654386490466367, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2499427591285001809, guid: 0adef443486de5945ad21773d34f5495, type: 3}
       propertyPath: m_Name
       value: TBC Bush Worm Variant

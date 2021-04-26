@@ -39,43 +39,46 @@ public class TBC_TurnHandler : MonoBehaviour
         TBC_CanvasManager.instance.ClearSelectionButtons();
         TBC_CanvasManager.instance.descriptionText.text = "";
 
-        TBC_GameManager.instance.SetNextEntityTurn();
-        TBC_GameManager.instance.ActiveTurnEntity.startTurnEvent.Invoke();
-
-        foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
+        if (TBC_GameManager.instance.playerEntities.Count > 0 && TBC_GameManager.instance.enemyEntities.Count > 0)
         {
-            attack.cooldownCount--;
-        }
+            TBC_GameManager.instance.SetNextEntityTurn();
+            TBC_GameManager.instance.ActiveTurnEntity.startTurnEvent.Invoke();
 
-        if (ActiveTurnEntity.GetType() == typeof(TBC_EnemyEntity))
-        {
-            TBC_Attack enemyAttack = null;
-
-            while(enemyAttack == null)
+            foreach (TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
             {
-                enemyAttack = ActiveTurnEntity.attackList[Random.Range(0, ActiveTurnEntity.attackList.Length)];
-
-                if (enemyAttack.cooldownCount > 0) enemyAttack = null;
+                attack.cooldownCount--;
             }
-            enemyAttack.ResetTargets();
 
-            if (enemyAttack.maxTargets < TBC_GameManager.instance.playerEntities.Count)
+            if (ActiveTurnEntity.GetType() == typeof(TBC_EnemyEntity))
             {
-                bool finishedAttack = false;
-                while (!finishedAttack)
+                TBC_Attack enemyAttack = null;
+
+                while (enemyAttack == null)
                 {
-                    finishedAttack = enemyAttack.TryAddTarget(TBC_GameManager.instance.playerEntities[Random.Range(0, TBC_GameManager.instance.playerEntities.Count)]);
-                }
-            }
-            else
-            {
-                foreach(TBC_PlayerEntity playerEntity in TBC_GameManager.instance.playerEntities)
-                {
-                    enemyAttack.TryAddTarget(playerEntity);
-                }
-            }
+                    enemyAttack = ActiveTurnEntity.attackList[Random.Range(0, ActiveTurnEntity.attackList.Length)];
 
-            NextTurn();
+                    if (enemyAttack.cooldownCount > 0) enemyAttack = null;
+                }
+                enemyAttack.ResetTargets();
+
+                if (enemyAttack.maxTargets < TBC_GameManager.instance.playerEntities.Count)
+                {
+                    bool finishedAttack = false;
+                    while (!finishedAttack)
+                    {
+                        finishedAttack = enemyAttack.TryAddTarget(TBC_GameManager.instance.playerEntities[Random.Range(0, TBC_GameManager.instance.playerEntities.Count)]);
+                    }
+                }
+                else
+                {
+                    foreach (TBC_PlayerEntity playerEntity in TBC_GameManager.instance.playerEntities)
+                    {
+                        enemyAttack.TryAddTarget(playerEntity);
+                    }
+                }
+
+                NextTurn();
+            }
         }
     }
 

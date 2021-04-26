@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2976428002708291034}
-  - component: {fileID: 2083737526389291919}
+  - component: {fileID: 3990786644571301466}
   m_Layer: 0
   m_Name: Spit Ooze
   m_TagString: Untagged
@@ -29,9 +29,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6178650044903159492}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2083737526389291919
+--- !u!114 &3990786644571301466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,17 +40,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1001814866478581345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
+  m_Script: {fileID: 11500000, guid: d8f2ab52928cd294dbf39d2d43601914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Attack Description
+  description: 
   damage: 1
-  cooldownDuration: 0
+  cooldownDuration: 3
   cooldownCount: 0
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
+  isPiercing: 0
   targetType: 0
+  dotDuration: 4
+  dotDamage: 1
+  destroysArmor: 1
 --- !u!1 &3129813497490875022
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +84,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6178650044903159492}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7513241756604597446
 MonoBehaviour:
@@ -95,63 +99,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Attack Description
-  damage: 1
-  cooldownDuration: 0
+  damage: 5
+  cooldownDuration: 2
   cooldownCount: 0
   maxTargets: 1
   selectedTargets: []
   affectsAll: 0
-  targetType: 0
---- !u!1 &8184601355595614425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1615766635417695443}
-  - component: {fileID: 7668267591036356330}
-  m_Layer: 0
-  m_Name: Ooze
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1615766635417695443
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8184601355595614425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6178650044903159492}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7668267591036356330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8184601355595614425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71ee5889b1ee734baa26293d2486882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Attack Description
-  damage: 1
-  cooldownDuration: 0
-  cooldownCount: 0
-  maxTargets: 1
-  selectedTargets: []
-  affectsAll: 0
+  isPiercing: 0
   targetType: 0
 --- !u!1001 &7512770207911922392
 PrefabInstance:
@@ -163,6 +117,10 @@ PrefabInstance:
     - target: {fileID: 1787654386490466367, guid: 0adef443486de5945ad21773d34f5495, type: 3}
       propertyPath: description
       value: Attack Description
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787654386490466367, guid: 0adef443486de5945ad21773d34f5495, type: 3}
+      propertyPath: damage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2499427591285001809, guid: 0adef443486de5945ad21773d34f5495, type: 3}
       propertyPath: m_Name

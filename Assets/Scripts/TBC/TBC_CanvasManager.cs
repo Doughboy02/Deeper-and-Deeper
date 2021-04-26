@@ -20,6 +20,7 @@ public class TBC_CanvasManager : MonoBehaviour
     private void Start()
     {
         ClearSelectionButtons();
+        SpawnAttackSelections();
     }
 
     public void OnActionButtonSelected(int buttonIndex)
@@ -40,6 +41,8 @@ public class TBC_CanvasManager : MonoBehaviour
 
     public void SpawnAttackSelections()
     {
+        ClearSelectionButtons();
+
         foreach(TBC_Attack attack in TBC_GameManager.instance.ActiveTurnEntity.attackList)
         {
             TBC_SelectionButton selectionButton = Instantiate(selectionButtonPrefab, selectionButtonParentTransform).GetComponent<TBC_SelectionButton>();

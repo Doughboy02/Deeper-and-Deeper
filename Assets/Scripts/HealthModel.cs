@@ -10,4 +10,22 @@ public class HealthModel : MonoBehaviour
     {
         get { return (float)health / maxHealth; }
     }
+
+    public int armor;
+
+    public void ReceiveDamage(int damage, bool isPiercing)
+    {
+        if (!isPiercing && armor > 0)
+        {
+            armor -= damage;
+            if (armor < 0)
+            {
+                damage = Mathf.Abs(armor);
+                armor = 0;
+            }
+            else damage = 0;
+        }
+
+        health -= damage;
+    }
 }
